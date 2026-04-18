@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>rest_site_upgrade_all</AssemblyName>
+    <RootNamespace>RestSiteUpgradeAll</RootNamespace>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+
+    <GodotSharpDll
+      Condition="'$(GodotSharpDll)' == '' and Exists('/Users/chenyu/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64/GodotSharp.dll')">/Users/chenyu/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64/GodotSharp.dll</GodotSharpDll>
+    <GodotSharpDll Condition="'$(GodotSharpDll)' == ''">/absolute/path/to/GodotSharp.dll</GodotSharpDll>
+    <Sts2Dll
+      Condition="'$(Sts2Dll)' == '' and Exists('/Users/chenyu/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64/sts2.dll')">/Users/chenyu/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64/sts2.dll</Sts2Dll>
+    <Sts2Dll Condition="'$(Sts2Dll)' == ''">/absolute/path/to/sts2.dll</Sts2Dll>
+    <HarmonyDll
+      Condition="'$(HarmonyDll)' == '' and Exists('/Users/chenyu/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64/0Harmony.dll')">/Users/chenyu/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64/0Harmony.dll</HarmonyDll>
+    <HarmonyDll Condition="'$(HarmonyDll)' == ''">/absolute/path/to/0Harmony.dll</HarmonyDll>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="GodotSharp">
+      <HintPath>$(GodotSharpDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="sts2">
+      <HintPath>$(Sts2Dll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="rest_site_upgrade_all.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

@@ -187,3 +187,8 @@ rg -n "RestSiteUpgradeAll|ERROR|Exception" "$HOME/Library/Application Support/Sl
 - 入口初始化: [Bootstrap.cs](/Users/chenyu/project/mod/update_all/demo/RestSiteUpgradeAll/src/Bootstrap.cs)
 - 日志封装: [Log.cs](/Users/chenyu/project/mod/update_all/demo/RestSiteUpgradeAll/src/Log.cs)
 - 核心补丁: [RestSitePatches.cs](/Users/chenyu/project/mod/update_all/demo/RestSiteUpgradeAll/src/Sts2/RestSitePatches.cs)
+
+## 注意事项！！
+- 首次加载mod会覆盖存档！请注意报错好自己的存档。
+- mod放置目录为<Slay the Spire 2>\mods\rest_site_upgrade_all\
+- github地址 https://github.com/cheny777/RestSiteUpgradeAll

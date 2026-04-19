@@ -7,7 +7,9 @@ csc="$sdk_dir/Roslyn/bincore/csc.dll"
 
 game_dir="${GAME_DIR:-$HOME/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64}"
 project_dir="$(cd "$(dirname "$0")" && pwd)"
-out_dir="$project_dir/bin/manual"
+out_subdir="${OUT_SUBDIR:-manual}"
+platform_target="${PLATFORM_TARGET:-}"
+out_dir="$project_dir/bin/$out_subdir"
 
 if [[ ! -f "$game_dir/sts2.dll" ]]; then
   echo "sts2.dll not found under: $game_dir" >&2
@@ -32,6 +34,7 @@ srcs=(
   -langversion:latest \
   -nullable:enable \
   -target:library \
+  ${platform_target:+-platform:$platform_target} \
   -out:"$out_dir/rest_site_upgrade_all.dll" \
   "${refs[@]}" \
   "${srcs[@]}"
